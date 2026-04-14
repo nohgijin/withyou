@@ -30,14 +30,24 @@ const days = [
       {
         emoji: "🛤️",
         name: "이스티클랄 거리",
-        photo: "https://source.unsplash.com/600x300/?istiklal,istanbul,street",
-        desc: "이스탄불 최대 번화가. 1.4km 길이의 보행자 거리로 카페·레스토랑·갤러리가 가득하며, 클래식 노면전차가 오간다. 낮보다 밤이 더 활기차다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?istiklal,istanbul,street",
+          "https://source.unsplash.com/800x500/?istanbul,tram,nostalgic",
+          "https://source.unsplash.com/800x500/?istanbul,beyoglu,night",
+        ],
+        desc: "이스탄불 최대 번화가이자 유럽 지구(베이오을루)의 심장부. 1.4km 길이의 보행자 전용 거리로 19세기에 지어진 유럽풍 석조 건물들이 양쪽으로 늘어서 있다. 1871년부터 운행된 빨간 클래식 노면전차(T2 라인)가 거리 중앙을 오가며 독특한 분위기를 연출한다. 낮에는 카페·레스토랑·부티크 쇼핑을, 저녁에는 라이브 버스킹과 활기찬 분위기를 만끽할 수 있다. 갈라타사라이 고등학교 주변 골목에 현지인들이 즐겨 찾는 숨은 카페들이 밀집해 있다.",
+        details: { hours: "24시간 개방 (상점 10:00~22:00)", price: "무료", tip: "갈라타사라이 광장 뒤편 골목이 현지 카페 숨은 명소. 노면전차는 사진 찍을 때만 조심하면 됨" },
       },
       {
         emoji: "🗼",
         name: "갈라타 탑",
-        photo: "https://source.unsplash.com/600x300/?galata,tower,istanbul",
-        desc: "1348년 제노바인이 세운 67m 높이의 원통형 석탑. 전망대에서 골든혼, 보스포루스 해협, 이스탄불 구시가 스카이라인을 한눈에 감상할 수 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?galata,tower,istanbul",
+          "https://source.unsplash.com/800x500/?galata,istanbul,night",
+          "https://source.unsplash.com/800x500/?bosphorus,istanbul,view",
+        ],
+        desc: "1348년 제노바 상인들이 무역 거점 보호를 위해 세운 67m 높이의 원통형 석탑. 당시 이스탄불에서 가장 높은 건축물이었다. 오스만 시대에는 화재 감시탑, 감옥 등으로 쓰였다. 전망대에서는 골든혼, 보스포루스 해협, 아야 소피아·블루 모스크의 돔과 첨탑이 360도 파노라마로 펼쳐진다. 해질 무렵 조명이 켜지면 외관이 황금빛으로 빛나 야경도 아름답다.",
+        details: { hours: "08:30~22:00", price: "약 ₺500 (약 ₩22,000)", tip: "주말 성수기 1~2시간 대기. 온라인 사전 예매 필수. 꼭대기 전망대는 바람이 세니 겉옷 챙기기" },
       },
     ],
   },
@@ -49,9 +59,10 @@ const days = [
     color: "#C4573A",
     icon: "🕌",
     title: "이스탄불 핵심 관광",
-    mapUrl: "https://www.google.com/maps/dir/Hagia+Sophia+Istanbul/Blue+Mosque+Istanbul/Topkapi+Palace+Istanbul/Grand+Bazaar+Istanbul/Galata+Bridge+Istanbul/Hotel+Arcadia+Blue+Istanbul",
-    mapStops: ["아야 소피아", "블루 모스크", "톱카프 궁전", "그랜드 바자르", "보스포루스", "🏨 호텔"],
+    mapUrl: "https://www.google.com/maps/dir/Hotel+Arcadia+Blue+Istanbul/Hagia+Sophia+Istanbul/Blue+Mosque+Istanbul/Topkapi+Palace+Istanbul/Grand+Bazaar+Istanbul/Galata+Bridge+Istanbul/Hotel+Arcadia+Blue+Istanbul",
+    mapStops: ["🏨 호텔 출발", "아야 소피아", "블루 모스크", "톱카프 궁전", "그랜드 바자르", "보스포루스", "🏨 호텔"],
     mapSegments: [
+      { icon: "🚶", mode: "도보", time: "5분", dist: "350m", tip: "Hotel Arcadia Blue Istanbul에서 아야 소피아 정문까지 도보 5분. 술탄아흐메트 광장을 가로질러 직진" },
       { icon: "🚶", mode: "도보", time: "3분", dist: "250m", tip: "히포드롬 광장을 사이에 두고 마주보고 있어 바로 걸어서 이동 가능" },
       { icon: "🚶", mode: "도보", time: "8분", dist: "600m", tip: "블루 모스크 옆 굴하네 공원 방향 오르막길 따라 이동" },
       { icon: "🚶", mode: "도보", time: "12분", dist: "800m", tip: "톱카프 서문(Bab-ı Hümayun) 나와 내리막길 직진. 그랜드 바자르 정문까지" },
@@ -69,32 +80,57 @@ const days = [
       {
         emoji: "🏛️",
         name: "아야 소피아",
-        photo: "https://source.unsplash.com/600x300/?hagia,sophia,istanbul",
-        desc: "537년 완공된 비잔틴 건축의 걸작. 천 년간 기독교 성당으로 쓰이다 오스만 정복 후 모스크로, 현재는 다시 모스크로 운영 중. 지름 31m의 거대한 돔과 황금 모자이크가 압도적이다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?hagia,sophia,istanbul",
+          "https://source.unsplash.com/800x500/?hagia,sophia,interior,dome",
+          "https://source.unsplash.com/800x500/?byzantine,mosaic,istanbul",
+        ],
+        desc: "537년 완공된 비잔틴 제국의 걸작으로, 천 년 이상 세계 최대 성당이었다. 유스티니아누스 황제가 5년에 걸쳐 건설했으며, 지름 31m·높이 55m의 거대한 돔은 '하늘에 떠 있는 것처럼 보인다'는 기록이 남아 있다. 1453년 오스만 정복 이후 모스크로 개조되었고, 1934년 박물관 전환 후 2020년 다시 모스크로 환원돼 현재 예배가 진행 중이다. 비잔틴 황금 모자이크와 이슬람 캘리그래피 원판이 공존하는 내부가 압도적이다.",
+        details: { hours: "09:00~17:00 (예배 시간 외)", price: "무료 (외국인도 입장 가능)", tip: "금요일 정오 예배 시간엔 입장 제한. 어깨·무릎 가리는 복장 필수. 여성은 스카프 착용" },
       },
       {
         emoji: "🕌",
-        name: "블루 모스크",
-        photo: "https://source.unsplash.com/600x300/?blue,mosque,istanbul",
-        desc: "1616년 완공. 세계 유일의 6첨탑 모스크. 내부를 장식한 2만 개 이상의 이즈닉 블루 타일에서 '블루 모스크'라는 별명이 붙었다.",
+        name: "블루 모스크 (술탄 아흐메트 모스크)",
+        photos: [
+          "https://source.unsplash.com/800x500/?blue,mosque,istanbul",
+          "https://source.unsplash.com/800x500/?sultan,ahmed,mosque,interior",
+          "https://source.unsplash.com/800x500/?blue,mosque,courtyard,istanbul",
+        ],
+        desc: "1616년 완공. 세계 유일의 6첨탑 모스크로, 당시 메카 성원과 같은 수의 첨탑을 세웠다 해서 논란이 되기도 했다. 내부를 장식한 2만 개 이상의 이즈닉 블루 타일이 외광과 어우러져 신비로운 분위기를 만들어낸다. 아야 소피아와 200m 거리라 두 건물을 함께 보는 것이 이스탄불 여행의 하이라이트. 현재도 하루 5회 기도 시간에 아잔이 울린다.",
+        details: { hours: "09:00~17:00 (예배 시간 제외)", price: "무료", tip: "예배 시간 30분 전후로 관광 입장 불가. 신발은 입구에서 벗어야 함. 복장 규정 엄격히 적용" },
       },
       {
         emoji: "👑",
         name: "톱카프 궁전",
-        photo: "https://source.unsplash.com/600x300/?topkapi,palace,istanbul",
-        desc: "15세기부터 400년간 오스만 제국 술탄의 거처. 4개의 정원 구역으로 이루어진 광대한 궁전 박물관. 선지자 무함마드의 유물, 에메랄드 단검 등 귀한 소장품이 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?topkapi,palace,istanbul",
+          "https://source.unsplash.com/800x500/?topkapi,palace,courtyard",
+          "https://source.unsplash.com/800x500/?ottoman,palace,treasure,istanbul",
+        ],
+        desc: "1465년부터 약 400년간 오스만 제국 술탄의 행정·거주 본부. 4개의 정원으로 구성되며 총면적 70만㎡에 달한다. 보물 전시관에는 에메랄드 단검(86캐럿 다이아몬드 장식)·세계 최대 에메랄드 원석·스푼장이의 다이아몬드(86캐럿)가 보관되어 있으며, 선지자 무함마드의 망토·검·이빨 등 이슬람 유물도 전시 중이다. 하렘 구역은 별도 입장권이 필요하며 오스만 황실의 내밀한 생활상을 엿볼 수 있다.",
+        details: { hours: "09:00~18:45 (화요일 휴관)", price: "약 ₺1,200 / 하렘 별도 ₺500", tip: "무조건 사전 온라인 예매. 당일 현장 매표소는 2~3시간 대기 각오. 하렘은 별도 예매 필수" },
       },
       {
         emoji: "🏪",
         name: "그랜드 바자르",
-        photo: "https://source.unsplash.com/600x300/?grand,bazaar,istanbul",
-        desc: "1461년 개장한 세계 최대 실내 시장 중 하나. 64개 골목에 4,000개 이상의 상점. 카펫·도자기·터키램프·향신료·금세공품이 가득하며 흥정이 기본 문화다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?grand,bazaar,istanbul",
+          "https://source.unsplash.com/800x500/?turkish,lamp,bazaar",
+          "https://source.unsplash.com/800x500/?istanbul,spice,market",
+        ],
+        desc: "1461년 개장한 세계 최대 실내 시장 중 하나. 64개 골목에 4,000개 이상의 상점이 가득하다. 카펫·도자기·터키 세잔 램프·향신료·가죽·금세공품이 넘쳐나며, 흥정은 기본 문화다. 처음 제시 가격의 50~70%에서 협상을 시작하는 것이 불문율. 미로 같은 골목에서 길을 잃어도 그것 자체가 구경거리다. 나오는 길에 이집션 바자르(향신료 시장)도 함께 둘러보자.",
+        details: { hours: "09:00~19:00 (일요일 휴무)", price: "무료 입장", tip: "현금(리라)이 협상에 유리. 카드도 되지만 흥정력 감소. 가격표 없는 물건은 무조건 흥정 가능" },
       },
       {
         emoji: "🚢",
         name: "보스포루스 해협 크루즈",
-        photo: "https://source.unsplash.com/600x300/?bosphorus,istanbul,strait",
-        desc: "유럽과 아시아 대륙을 가르는 해협을 배 위에서 감상. 돌마바흐체 궁전, 루멜리 요새 등을 지나며 선셋을 만끽할 수 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?bosphorus,istanbul,boat",
+          "https://source.unsplash.com/800x500/?istanbul,golden,horn,sunset",
+          "https://source.unsplash.com/800x500/?dolmabahce,palace,bosphorus",
+        ],
+        desc: "유럽과 아시아 대륙을 가르는 31km 해협을 배 위에서 유람. 돌마바흐체 궁전, 루멜리 히사르 요새, 베일레르베이 궁전, 보스포루스 대교 등 연안 볼거리가 풍부하다. 공공 페리(에미뇌뉘 출발, ₺40 내외)부터 선상 디너 크루즈(₺500~2,000)까지 다양한 옵션이 있다. 석양 무렵 출항하는 선셋 크루즈가 커플에게 압도적으로 인기 높으며, 양쪽 대륙의 야경을 배 위에서 동시에 감상할 수 있다.",
+        details: { hours: "페리: 하루 3~4회 / 선셋 크루즈: 17:30~20:00", price: "공공 페리 ₺40~60 / 선셋 크루즈 ₺500~1,000", tip: "에미르뇌뉘(Eminönü) 선착장 출발. 크루즈 업체는 GetYourGuide·Viator로 사전 예약하면 더 저렴" },
       },
     ],
   },
@@ -106,9 +142,11 @@ const days = [
     color: "#D4883E",
     icon: "🏜️",
     title: "카파도키아 도착 & 선셋 하이킹",
-    mapUrl: "https://www.google.com/maps/dir/Kayseri+Airport+Turkey/Goreme+Nevsehir+Turkey/Rose+Valley+Cappadocia+Turkey/Kelebek+Special+Cave+Hotel+Goreme",
-    mapStops: ["카이세리 공항", "괴레메 마을", "로즈 밸리", "🏨 동굴 호텔"],
+    mapUrl: "https://www.google.com/maps/dir/Hotel+Arcadia+Blue+Istanbul/Istanbul+Airport+IST+Turkey",
+    mapStops: ["🏨 이스탄불 호텔", "IST 공항", "✈️ 비행", "카이세리 공항", "괴레메 마을", "로즈 밸리", "🏨 동굴 호텔"],
     mapSegments: [
+      { icon: "🚕", mode: "택시", time: "약 40분", dist: "40km", tip: "술탄아흐메트 → IST 공항(하발리스트). 아침 일찍이라 비교적 막힘 없음. BiTaksi 앱 호출 추천, 약 ₺400~500. 공항 2시간 전 도착 권장" },
+      { icon: "✈️", mode: "국내선 (IST → ASR)", time: "1시간 20분", dist: "750km", tip: "이스탄불(IST) → 카이세리(ASR) 직항. TK 또는 PC 탑승. 수하물은 위탁 후 카파도키아 호텔까지 바로" },
       { icon: "🚌", mode: "공항 셔틀버스", time: "약 75분", dist: "75km", tip: "공항 도착 후 'Göreme' 행 셔틀 탑승. 비용 약 ₺300~400. 또는 호텔 픽업 서비스 사전 예약 추천. 택시는 약 ₺800" },
       { icon: "🚶", mode: "도보 또는 택시", time: "15~20분", dist: "1.5km", tip: "괴레메 마을에서 로즈 밸리 입구까지 도보 가능. 내리막이라 갈 때는 편하지만 올 때는 오르막이므로 택시(약 ₺100) 권장" },
       { icon: "🚕", mode: "택시 또는 도보", time: "5~10분", dist: "700m", tip: "로즈 밸리에서 하산 후 괴레메 마을 중심으로 귀환. Kelebek Special Cave Hotel까지 도보 약 10분 또는 택시 ₺50~80" },
@@ -125,14 +163,24 @@ const days = [
       {
         emoji: "🏘️",
         name: "괴레메 마을",
-        photo: "https://source.unsplash.com/600x300/?goreme,cappadocia,village",
-        desc: "카파도키아 여행의 베이스캠프. 화산 응회암을 깎아 만든 동굴 카페와 숙소가 즐비하다. 야외박물관과 인접해 있어 도보 이동이 편리하고, 마을 자체가 유네스코 세계유산 구역 안에 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?goreme,cappadocia,village",
+          "https://source.unsplash.com/800x500/?cappadocia,cave,cafe",
+          "https://source.unsplash.com/800x500/?cappadocia,balloon,morning",
+        ],
+        desc: "카파도키아 여행의 베이스캠프. 화산 응회암을 직접 깎아 만든 동굴 카페, 동굴 호텔, 동굴 레스토랑이 마을 전체를 이루고 있으며, 마을 자체가 유네스코 세계유산 구역 안에 포함된다. 마을 중심에서 모든 주요 관광지가 도보 또는 짧은 차량 이동으로 닿는 것이 장점. 열기구 운항 중심지이기도 해서 이른 새벽부터 하늘 위로 수십 개의 열기구가 떠오르는 장관을 숙소 테라스에서 바로 감상할 수 있다.",
+        details: { hours: "마을 상시 개방 / 야외박물관 08:00~19:00", price: "마을 입장 무료", tip: "마을 중심 언덕 위에서 해 질 녘 사진이 가장 잘 나옴. 현지 동굴 카페에서 터키차(çay) 한 잔 꼭 마셔볼 것" },
       },
       {
         emoji: "🌄",
-        name: "로즈 밸리",
-        photo: "https://source.unsplash.com/600x300/?rose,valley,cappadocia,sunset",
-        desc: "석양이 질 무렵 분홍·장밋빛으로 물드는 계곡. 깎아지른 붉은 절벽 사이로 트레킹 코스가 잘 정비되어 있다. 일몰 30분 전부터 색이 가장 아름다워 이 시간에 맞춰 가는 것이 포인트.",
+        name: "로즈 밸리 (장미 계곡)",
+        photos: [
+          "https://source.unsplash.com/800x500/?rose,valley,cappadocia,sunset",
+          "https://source.unsplash.com/800x500/?red,valley,cappadocia,hiking",
+          "https://source.unsplash.com/800x500/?cappadocia,canyon,pink,rock",
+        ],
+        desc: "화산 응회암이 수백만 년에 걸쳐 침식되며 형성된 붉은 빛깔의 계곡. 석양이 질 무렵 암벽이 분홍·장밋빛·주황색으로 물드는 광경이 압권으로, 카파도키아에서 가장 아름다운 일몰 포인트로 꼽힌다. 잘 정비된 트레킹 코스(왕복 약 4km, 2시간)가 있으며, 중간중간 초기 기독교 수도사들이 파놓은 소규모 동굴 교회도 만날 수 있다. 일몰 30분 전 현장 도착이 황금 포인트.",
+        details: { hours: "일출~일몰", price: "무료", tip: "편한 운동화 필수. 내려갈 때는 쉽지만 올라올 때 급경사 구간 있음. 물과 간식 챙기기. 헤드랜턴 있으면 일몰 후 귀환 시 유용" },
       },
     ],
   },
@@ -144,10 +192,10 @@ const days = [
     color: "#D4883E",
     icon: "🎈",
     title: "열기구 + 레드 투어",
-    mapUrl: "https://www.google.com/maps/dir/Goreme+Nevsehir+Turkey/Goreme+Open+Air+Museum+Turkey/Devrent+Valley+Cappadocia/Pasabag+Fairy+Chimneys+Cappadocia/Avanos+Nevsehir+Turkey/Kelebek+Special+Cave+Hotel+Goreme",
-    mapStops: ["괴레메", "야외박물관", "데브렌트 밸리", "파샤바", "아바노스", "🏨 동굴 호텔"],
+    mapUrl: "https://www.google.com/maps/dir/Kelebek+Special+Cave+Hotel+Goreme/Goreme+Open+Air+Museum+Turkey/Devrent+Valley+Cappadocia/Pasabag+Fairy+Chimneys+Cappadocia/Avanos+Nevsehir+Turkey/Kelebek+Special+Cave+Hotel+Goreme",
+    mapStops: ["🏨 동굴 호텔", "야외박물관", "데브렌트 밸리", "파샤바", "아바노스", "🏨 동굴 호텔"],
     mapSegments: [
-      { icon: "🚶", mode: "도보", time: "10분", dist: "800m", tip: "괴레메 마을 북동쪽 오르막길. 표지판 따라 걸어서 이동. 입장료 약 ₺750 별도" },
+      { icon: "🚶", mode: "도보", time: "10분", dist: "800m", tip: "Kelebek Cave Hotel에서 야외박물관까지 괴레메 마을 북동쪽 오르막길. 표지판 따라 걸어서 이동. 입장료 약 ₺750 별도" },
       { icon: "🚌", mode: "레드 투어 버스", time: "15분", dist: "10km", tip: "투어 차량이 박물관 앞에서 픽업. 별도 이동 불필요 (레드 투어에 포함)" },
       { icon: "🚌", mode: "레드 투어 버스", time: "10분", dist: "7km", tip: "투어 연속 이동. 데브렌트 → 파샤바 버섯바위 (요정 굴뚝)" },
       { icon: "🚌", mode: "레드 투어 버스", time: "15분", dist: "8km", tip: "아바노스는 클즐 으르막 강변 마을. 도자기 체험 후 투어버스로 괴레메 복귀" },
@@ -165,32 +213,57 @@ const days = [
       {
         emoji: "🎈",
         name: "열기구 투어",
-        photo: "https://source.unsplash.com/600x300/?cappadocia,hot,air,balloon",
-        desc: "카파도키아 최고의 액티비티. 새벽 4시 반 기상 후 일출과 함께 버섯바위 지대 상공을 약 1시간 비행. 착륙 후 전통적으로 샴페인을 터뜨리는 의식이 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?cappadocia,hot,air,balloon,sunrise",
+          "https://source.unsplash.com/800x500/?cappadocia,balloon,fairy,chimneys",
+          "https://source.unsplash.com/800x500/?cappadocia,balloon,sky,view",
+        ],
+        desc: "카파도키아 최고의 액티비티이자 버킷리스트 1순위. 새벽 4시 30분 기상, 출발지 이동 후 35~45분 준비, 일출과 함께 약 1시간 비행한다. 200~300m 상공에서 버섯바위·동굴 지형·열기구 군락이 한데 어우러진 장관이 펼쳐진다. 착륙 후 전통적으로 샴페인을 터뜨리고 인증서를 수여하는 세리머니가 있다. 5월 성수기엔 최소 2~3주 전 예약 필수. 기상 악화 시 취소되며 당일 재조정된다.",
+        details: { hours: "새벽 04:30~07:30 (일출 전후)", price: "1인 약 €150~200 (₩22~30만원)", tip: "Kapadokya Balloons·Royal Balloon 같은 대형 안전 인증 업체 추천. 방풍 자켓 필수. 일몰 전날 취소 통보가 오면 익일 자동 재배정" },
       },
       {
         emoji: "⛪",
         name: "괴레메 야외박물관",
-        photo: "https://source.unsplash.com/600x300/?goreme,open,air,museum,cave,church",
-        desc: "유네스코 세계유산. 10~13세기 초기 기독교 수도사들이 화산암 절벽을 직접 파서 만든 동굴 수도원과 교회 군락. 내부에 채색 프레스코화가 잘 보존되어 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?goreme,open,air,museum",
+          "https://source.unsplash.com/800x500/?cave,church,fresco,cappadocia",
+          "https://source.unsplash.com/800x500/?cappadocia,rock,monastery",
+        ],
+        desc: "유네스코 세계유산으로, 10~13세기 초기 기독교 수도사들이 화산 응회암 절벽을 직접 파서 만든 동굴 수도원·교회·식당 군락. 30개 이상의 암굴 교회가 밀집해 있으며, 내부에는 중세 비잔틴 채색 프레스코화가 놀라운 보존 상태로 남아 있다. 특히 '토칼리 교회(Tokalı Kilise)'는 규모와 채색화 수준이 압도적이다. 별도 표를 끊는 '어두운 교회(Karanlık Kilise)'의 내부가 가장 화려하다.",
+        details: { hours: "08:00~19:00", price: "약 ₺750 / 어두운 교회 추가 ₺200", tip: "가장 붐비는 명소. 09시 이전 입장 시 여유롭게 관람 가능. 사진은 외부에서만 촬영 허용 (내부 금지)" },
       },
       {
         emoji: "🏔️",
-        name: "데브렌트 밸리",
-        photo: "https://source.unsplash.com/600x300/?cappadocia,rock,formation,valley",
-        desc: "바람과 비에 깎인 기암들이 낙타·독수리·나폴레옹 등 다양한 형태를 닮아 '상상의 계곡'으로 불린다.",
+        name: "데브렌트 밸리 (상상의 계곡)",
+        photos: [
+          "https://source.unsplash.com/800x500/?devrent,valley,cappadocia",
+          "https://source.unsplash.com/800x500/?cappadocia,rock,formation,camel",
+          "https://source.unsplash.com/800x500/?cappadocia,volcanic,rock,landscape",
+        ],
+        desc: "'상상의 계곡'이라는 별명을 가진 곳. 바람과 비에 수백만 년간 깎인 기암들이 낙타·독수리·나폴레옹·바다표범 등 동물이나 사람의 형태를 닮아 있다. 방문객들이 서로 다른 형상을 찾아내는 재미가 있으며, 낙타 바위가 가장 유명하다. 레드 투어 차량에서 잠시 내려 30~40분 산책하는 코스로 포함된다.",
+        details: { hours: "상시 개방", price: "무료", tip: "레드 투어에 포함된 코스. 자유여행이라면 렌터카로 이동. 모자와 선크림 필수 (그늘 거의 없음)" },
       },
       {
         emoji: "🍄",
-        name: "파샤바 버섯바위",
-        photo: "https://source.unsplash.com/600x300/?fairy,chimneys,cappadocia",
-        desc: "카파도키아를 대표하는 상징적 풍경. 단단한 현무암 모자를 쓴 채 솟아 있는 원뿔형 응회암 기둥들. 과거 수도사들이 이 안을 파고 들어가 생활하기도 했다.",
+        name: "파샤바 버섯바위 (요정 굴뚝)",
+        photos: [
+          "https://source.unsplash.com/800x500/?fairy,chimneys,cappadocia",
+          "https://source.unsplash.com/800x500/?pasabag,monks,valley,turkey",
+          "https://source.unsplash.com/800x500/?cappadocia,mushroom,rock,cone",
+        ],
+        desc: "카파도키아를 상징하는 가장 아이코닉한 풍경. 단단한 현무암 모자를 얹은 채 솟아 있는 원뿔형 응회암 기둥들로, '페리 침니(Fairy Chimney, 요정 굴뚝)'라 불린다. 파샤바(수도승 계곡)는 세 개의 머리가 달린 형태 등 특이한 버섯바위가 집중된 구역이다. 과거 수도사들이 이 안을 파고 들어가 생활했으며, 일부 내부를 직접 들어가 볼 수 있다. 열기구에서 내려다보이는 그 장면을 지상에서 마주하는 감동이 있다.",
+        details: { hours: "08:00~19:00", price: "약 ₺200", tip: "이른 오전(09시 이전) 방문 시 황금빛 조명과 조용한 환경 확보. 사진은 기둥과 가까이 가서 찍어야 원근감이 극대화됨" },
       },
       {
         emoji: "🏺",
         name: "아바노스 도자기 마을",
-        photo: "https://source.unsplash.com/600x300/?pottery,ceramic,turkey,craft",
-        desc: "히타이트 시대부터 5,000년 이상의 도자기 역사를 지닌 마을. 인근 강의 붉은 점토로 수제 도자기를 만든다. 공방에서 직접 체험도 가능.",
+        photos: [
+          "https://source.unsplash.com/800x500/?avanos,pottery,workshop,turkey",
+          "https://source.unsplash.com/800x500/?turkish,ceramic,art,pottery",
+          "https://source.unsplash.com/800x500/?clay,pottery,wheel,craft",
+        ],
+        desc: "히타이트 시대부터 5,000년 이상 이어온 도자기 역사를 가진 마을. 인근 클즐 으르막(붉은 강)의 붉은 점토가 원료로, 마을 전체가 도자기 공방 거리로 이루어져 있다. 전통 물레 위에서 직접 도자기를 빚어보는 체험이 가능하며, 공방마다 고유한 패턴과 디자인이 있어 구경하는 재미도 있다. 직접 만든 작품을 소성(굽기)해 배송해주는 서비스를 제공하는 공방도 있다.",
+        details: { hours: "09:00~18:00", price: "체험 약 ₺300~500 / 구경 무료", tip: "체험 후 구입 압박이 있을 수 있으니 예산 미리 정하기. 도자기는 깨지기 쉬우니 기포 완충재 포장 요청 필수" },
       },
     ],
   },
@@ -202,10 +275,10 @@ const days = [
     color: "#D4883E",
     icon: "⛰️",
     title: "그린 투어 + 액티비티",
-    mapUrl: "https://www.google.com/maps/dir/Derinkuyu+Underground+City+Turkey/Ihlara+Valley+Turkey/Goreme+Nevsehir+Turkey/Kelebek+Special+Cave+Hotel+Goreme",
-    mapStops: ["데린쿠유 지하도시", "으흘라라 계곡", "괴레메", "🏨 동굴 호텔"],
+    mapUrl: "https://www.google.com/maps/dir/Kelebek+Special+Cave+Hotel+Goreme/Derinkuyu+Underground+City+Turkey/Ihlara+Valley+Turkey/Goreme+Nevsehir+Turkey/Kelebek+Special+Cave+Hotel+Goreme",
+    mapStops: ["🏨 동굴 호텔", "데린쿠유 지하도시", "으흘라라 계곡", "괴레메", "🏨 동굴 호텔"],
     mapSegments: [
-      { icon: "🚌", mode: "그린 투어 버스", time: "35분", dist: "30km", tip: "그린 투어 차량이 괴레메 호텔에서 픽업 후 데린쿠유 → 으흘라라 이동. 투어에 포함, 별도 이동 불필요" },
+      { icon: "🚌", mode: "그린 투어 버스 (호텔 픽업)", time: "35분", dist: "30km", tip: "그린 투어 차량이 Kelebek Cave Hotel 앞에서 직접 픽업. 투어 예약 시 호텔 주소 전달 필수. 픽업 시간 전날 확인" },
       { icon: "🚌", mode: "그린 투어 버스", time: "50분", dist: "45km", tip: "으흘라라 계곡 종점 → 셀리메 수도원 경유 → 괴레메 호텔 복귀. 계곡 트레킹 3.5km(약 1시간 30분) 후 버스 탑승" },
       { icon: "🚶", mode: "도보", time: "5분", dist: "300m", tip: "투어 버스 괴레메 정류장 하차 후 Kelebek Special Cave Hotel까지 마을 안 골목으로 도보 5분" },
     ],
@@ -221,14 +294,24 @@ const days = [
       {
         emoji: "🕳️",
         name: "데린쿠유 지하도시",
-        photo: "https://source.unsplash.com/600x300/?underground,city,cappadocia,tunnel",
-        desc: "지하 85m, 18층 규모의 거대 지하 도시. 기원전 8세기경부터 조성된 것으로 추정. 초기 기독교인들이 박해를 피해 수천 명이 생활했던 공간으로, 환기구·우물·교회·마굿간까지 갖추고 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?derinkuyu,underground,city,cappadocia",
+          "https://source.unsplash.com/800x500/?underground,tunnel,ancient,cave",
+          "https://source.unsplash.com/800x500/?cappadocia,underground,carved,rock",
+        ],
+        desc: "지하 85m 깊이, 18개 층으로 이루어진 인류 최대 규모의 지하 도시. 기원전 8세기경부터 조성된 것으로 추정되며, 초기 기독교인들이 로마 제국의 박해를 피해 최대 2만 명이 생활했던 것으로 알려진다. 자체 환기구·우물·교회·학교·마굿간·포도주 저장고까지 갖춘 완전한 지하 도시 시스템이다. 현재는 지하 5~8층까지 공개되어 있으며, 좁은 통로와 낮은 천장이 특징적이다.",
+        details: { hours: "08:00~19:00", price: "약 ₺700", tip: "폐소 공포증 있으면 주의. 통로가 매우 좁고 천장이 낮음. 무릎을 굽히며 이동하는 구간 많음. 서늘해서 얇은 겉옷 하나 챙기기" },
       },
       {
         emoji: "🏞️",
         name: "으흘라라 계곡",
-        photo: "https://source.unsplash.com/600x300/?ihlara,canyon,valley,green,turkey",
-        desc: "화산 폭발로 생긴 14km 길이의 협곡. 양쪽 60~80m 높이의 절벽에 수십 개의 동굴 교회가 새겨져 있다. 계곡 바닥을 흐르는 멜렌디즈 강을 따라 3.5km 코스로 하이킹 가능.",
+        photos: [
+          "https://source.unsplash.com/800x500/?ihlara,valley,canyon,river,turkey",
+          "https://source.unsplash.com/800x500/?ihlara,green,canyon,cappadocia",
+          "https://source.unsplash.com/800x500/?river,hiking,canyon,turkey",
+        ],
+        desc: "화산 폭발로 형성된 14km 길이의 협곡. 양쪽 60~80m 높이 절벽에 초기 기독교인들이 파놓은 수십 개의 동굴 교회가 새겨져 있으며, 계곡 바닥을 흐르는 멜렌디즈 강이 초록빛 식생과 어우러져 카파도키아의 황량한 풍경과 강렬한 대조를 이룬다. 3.5km 하이킹 코스(약 1시간 30분)를 따라 비잔틴 프레스코화가 남아 있는 동굴 교회들을 만날 수 있다. 중간에 강 위 나무다리를 건너는 구간이 포토 스팟으로 인기 높다.",
+        details: { hours: "08:00~19:00", price: "약 ₺200 (계곡 입장료)", tip: "방수 기능 운동화 필수 (강변 구간 미끄러울 수 있음). 물 충분히 챙기기. 출구까지 편도 코스라 돌아올 때 택시 필요 (약 ₺100)" },
       },
     ],
   },
@@ -240,9 +323,11 @@ const days = [
     color: "#2E7D6F",
     icon: "🏖️",
     title: "안탈리아 도착 & 구시가지",
-    mapUrl: "https://www.google.com/maps/dir/Antalya+Airport+AYT/Kaleici+Antalya+Turkey/Hadrian+Gate+Antalya+Turkey/Antalya+Old+Harbour+Turkey/Puding+Marina+Residence+Antalya",
-    mapStops: ["안탈리아 공항", "칼레이치", "하드리아누스 문", "구항구", "🏨 호텔"],
+    mapUrl: "https://www.google.com/maps/dir/Kelebek+Special+Cave+Hotel+Goreme/Kayseri+Airport+ASR+Turkey",
+    mapStops: ["🏨 동굴 호텔", "카이세리 공항", "✈️ 비행", "안탈리아 공항", "칼레이치", "하드리아누스 문", "구항구", "🏨 호텔"],
     mapSegments: [
+      { icon: "🚌", mode: "호텔 셔틀 또는 택시", time: "약 75분", dist: "75km", tip: "Kelebek Cave Hotel → 카이세리 공항. 호텔 전날 셔틀 예약 권장 (약 ₺400). 또는 택시 ₺700~800. 비행 2시간 전 출발" },
+      { icon: "✈️", mode: "국내선 (ASR → AYT)", time: "1시간 20분", dist: "약 500km", tip: "카이세리(ASR) → 안탈리아(AYT) 직항. 페가수스(PC) 또는 썬익스프레스(XQ) 탑승. 직항 없을 시 이스탄불 경유" },
       { icon: "🚕", mode: "택시 또는 하바쉬 버스", time: "25분", dist: "13km", tip: "공항 → 시내 하바쉬(Havas) 셔틀버스 약 ₺60, 약 30분 소요. 택시는 약 ₺250~350, 25분. 칼레이치 숙소라면 택시가 편리" },
       { icon: "🚶", mode: "도보", time: "3분", dist: "200m", tip: "칼레이치 입구 골목 따라 직진하면 바로 하드리아누스 문 등장. 미로 같은 골목이므로 구글 지도 필수" },
       { icon: "🚶", mode: "도보", time: "5분", dist: "400m", tip: "하드리아누스 문에서 구시가지 골목 내리막을 따라가면 자연스럽게 구항구로 이어짐" },
@@ -261,20 +346,35 @@ const days = [
       {
         emoji: "🏙️",
         name: "칼레이치 구시가지",
-        photo: "https://source.unsplash.com/600x300/?kaleici,antalya,old,town",
-        desc: "'내부 성곽'이라는 뜻. 로마·비잔틴·셀주크·오스만 시대 건물들이 공존하는 미로 같은 골목길. 오래된 석조 저택들이 부티크 호텔과 카페로 변신해 있어 골목 탐방이 즐겁다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?kaleici,antalya,old,town,alley",
+          "https://source.unsplash.com/800x500/?antalya,boutique,hotel,alley",
+          "https://source.unsplash.com/800x500/?antalya,historic,street,ottoman",
+        ],
+        desc: "'내부 성곽'이라는 뜻의 칼레이치는 로마·비잔틴·셀주크·오스만 시대의 건물이 한데 공존하는 미로 같은 골목길이다. 2,000년 이상의 역사를 품은 성벽 안쪽에 오스만 시대 석조 저택들이 부티크 호텔·레스토랑·카페로 재탄생해 있다. 좁은 골목을 따라 걷다 보면 로마 시대 성벽, 케시크 미나레트(잘린 첨탑), 히드리리크 탑이 차례로 나타난다. 저녁 조명이 켜진 후 산책이 가장 아름답다.",
+        details: { hours: "24시간 (상점 10:00~22:00)", price: "무료", tip: "구글 맵 없으면 미로 골목에서 길 잃기 쉬움. 저녁 10시 이후 골목 조명 연출이 가장 예쁜 시간대" },
       },
       {
         emoji: "🏛️",
         name: "하드리아누스 문",
-        photo: "https://source.unsplash.com/600x300/?hadrian,gate,roman,arch,antalya",
-        desc: "서기 130년 로마 황제 하드리아누스의 안탈리아 방문을 기념해 건설된 개선문. 2,000년이 지난 지금도 3개의 아치가 원형에 가깝게 보존되어 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?hadrian,gate,antalya,roman,arch",
+          "https://source.unsplash.com/800x500/?ancient,gate,roman,turkey,arch",
+          "https://source.unsplash.com/800x500/?antalya,roman,monument,night",
+        ],
+        desc: "서기 130년 로마 황제 하드리아누스의 안탈리아 방문을 기념해 건설된 3개 아치의 대리석 개선문. 거의 2,000년이 지난 지금도 원형에 가깝게 보존되어 있다. 하얀 대리석 기둥과 섬세한 조각이 특징이며, 현재도 칼레이치 구시가지로 들어가는 관문 역할을 한다. 밤에 조명을 받으면 더욱 극적인 분위기를 연출해 야경 사진 명소로도 유명하다.",
+        details: { hours: "24시간 (외관)", price: "무료", tip: "밤 조명이 켜지는 19~20시 이후가 사진 찍기 가장 좋음. 문 아래에서 위를 올려다보는 앵글이 클래식 구도" },
       },
       {
         emoji: "⚓",
         name: "구항구",
-        photo: "https://source.unsplash.com/600x300/?antalya,harbor,marina,yacht",
-        desc: "2,000년 역사의 로마 시대 항구. 반원형 성벽에 둘러싸인 아담한 항구에 흰색 요트들이 정박해 있고, 특히 석양 무렵 분위기가 아름답다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?antalya,old,harbor,marina,yacht",
+          "https://source.unsplash.com/800x500/?antalya,harbor,sunset,mediterranean",
+          "https://source.unsplash.com/800x500/?antalya,roman,harbor,cliff",
+        ],
+        desc: "기원전 2세기 아탈로스 2세가 건설한 천연 항구로 2,000년 이상의 역사를 지닌다. 반원형 성벽에 둘러싸인 아담한 항구에 흰색 요트들이 가득 정박해 있고, 카페와 레스토랑이 항구를 에워싸고 있어 지중해 분위기가 물씬 풍긴다. 특히 저녁 석양 무렵 성벽 위에서 내려다보는 경치가 압권이며, 항구 바로 위 성벽 위에 레스토랑 Club Arma가 있어 뷰 맛집으로 유명하다.",
+        details: { hours: "24시간", price: "무료", tip: "석양 30분 전 성벽 위쪽에 자리 잡으면 최고의 포인트. 항구 주변 카페에서 터키 커피 한 잔 마시며 감상하기 강추" },
       },
     ],
   },
@@ -307,20 +407,35 @@ const days = [
       {
         emoji: "🏝️",
         name: "술루아다 섬",
-        photo: "https://source.unsplash.com/600x300/?turquoise,sea,island,turkey,clear,water",
-        desc: "'튀르키예의 몰디브'로 불리는 작은 무인도. 이례적으로 투명한 에메랄드빛 바다와 새하얀 자갈 해변이 펼쳐진다. 아드라산 항구에서 보트로 약 1시간 거리.",
+        photos: [
+          "https://source.unsplash.com/800x500/?suluada,turquoise,sea,island,turkey",
+          "https://source.unsplash.com/800x500/?clear,water,swimming,mediterranean,island",
+          "https://source.unsplash.com/800x500/?boat,trip,turquoise,aegean,sea",
+        ],
+        desc: "'튀르키예의 몰디브'라 불리는 작은 무인도. 파도가 잔잔하고 수심이 얕아 스노클링 명소로 알려진 에메랄드빛 바다가 펼쳐진다. 새하얀 자갈 해변과 수면 아래 산호·물고기도 선명하게 보인다. 아드라산 항구에서 보트로 약 1시간 거리라 접근이 쉽지 않아 상대적으로 사람이 적고 원시적인 자연 그대로의 풍경이 유지된다. 보트투어에 선상 점심이 포함되는 경우가 많다.",
+        details: { hours: "보트투어 기준 07:00~17:00", price: "1인 €30~50 (보트투어 포함)", tip: "멀미약 미리 복용 권장. 수건·수영복·선크림·아쿠아 슈즈 필수. 스노클링 장비는 투어에 보통 포함" },
       },
       {
         emoji: "💧",
         name: "두덴 폭포",
-        photo: "https://source.unsplash.com/600x300/?waterfall,cliff,sea,mediterranean",
-        desc: "안탈리아 북쪽 12km 지점에서 지중해 해안 절벽으로 직접 떨어지는 폭포. 배를 타고 절벽 아래에서 올려다보거나, 절벽 위 공원에서 내려다보는 두 가지 감상 방법이 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?duden,waterfall,antalya,cliff",
+          "https://source.unsplash.com/800x500/?waterfall,cliff,sea,mediterranean,rainbow",
+          "https://source.unsplash.com/800x500/?antalya,coastal,waterfall,park",
+        ],
+        desc: "안탈리아 북쪽 12km 지점에서 30m 절벽을 타고 지중해로 직접 떨어지는 이색 폭포. 배를 타고 절벽 아래에서 올려다보거나, 절벽 위 공원에서 내려다보는 두 가지 감상법이 있다. 바위 절벽 뒤로 물보라와 무지개가 피어나 사진이 아름답게 찍힌다. 주변 공원이 잘 정비되어 있어 산책하기도 좋으며, 절벽 위 카페에서 음료를 마시며 조망하는 것도 인기 코스다.",
+        details: { hours: "08:00~19:00", price: "공원 입장 무료 / 하단 보트 ₺100~200", tip: "절벽 위 공원은 도보 무료 진입. 무지개 사진은 오전 10~12시 햇빛 각도가 가장 좋음" },
       },
       {
         emoji: "🌊",
         name: "쾨프륄뤼 캐니언 래프팅",
-        photo: "https://source.unsplash.com/600x300/?rafting,canyon,river,adventure",
-        desc: "안탈리아 내륙 쾨프룰뤼 국립공원 내 협곡에서 즐기는 래프팅. 18km의 급류 코스. 협곡 양쪽에 로마 시대 돌다리도 볼 수 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?koprulu,canyon,rafting,river,turkey",
+          "https://source.unsplash.com/800x500/?whitewater,rafting,canyon,adventure",
+          "https://source.unsplash.com/800x500/?river,canyon,gorge,green,turkey",
+        ],
+        desc: "안탈리아 내륙 쾨프륄뤼 국립공원 내 협곡에서 즐기는 래프팅. 18km 급류 코스에 난이도 1~3급 급류가 섞여 있어 초보자도 즐길 수 있다. 협곡 양쪽 절벽에는 기원전 2세기에 건설된 로마 시대 돌다리(셀게 다리)도 볼 수 있다. 래프팅 후 강변에서 점심 바비큐가 포함된 패키지가 일반적이며, 안탈리아에서 액티비티 하나만 추가한다면 이것을 강력 추천한다.",
+        details: { hours: "투어 기준 09:00~17:00", price: "1인 ₺800~1,200 (점심 포함)", tip: "안탈리아에서 약 1시간 거리. 래프팅 복장(방수 재킷) 현장 제공. 편한 방수 샌들 또는 물에 젖어도 되는 운동화 착용" },
       },
     ],
   },
@@ -332,9 +447,10 @@ const days = [
     color: "#2E7D6F",
     icon: "🌊",
     title: "해변 휴식 & 여유로운 하루",
-    mapUrl: "https://www.google.com/maps/dir/Konyaalti+Beach+Antalya+Turkey/Antalya+Museum+Turkey/Kaleici+Antalya+Turkey/Puding+Marina+Residence+Antalya",
-    mapStops: ["콘야알티 해변", "안탈리아 박물관", "칼레이치", "🏨 호텔"],
+    mapUrl: "https://www.google.com/maps/dir/Puding+Marina+Residence+Antalya/Konyaalti+Beach+Antalya+Turkey/Antalya+Museum+Turkey/Kaleici+Antalya+Turkey/Puding+Marina+Residence+Antalya",
+    mapStops: ["🏨 호텔 출발", "콘야알티 해변", "안탈리아 박물관", "칼레이치", "🏨 호텔"],
     mapSegments: [
+      { icon: "🚃", mode: "트램", time: "20분", dist: "5km", tip: "Puding Marina Residence → 트램 Atatürk Kültür 역 탑승 → Müze 역 하차. 콘야알티 해변까지 도보 5분. 트램 약 ₺15" },
       { icon: "🚶", mode: "도보", time: "5분", dist: "400m", tip: "콘야알티 해변 동쪽 끝자락에 안탈리아 박물관이 바로 인접해 있음. 해변에서 걸어서 이동 가능" },
       { icon: "🚃", mode: "트램 또는 택시", time: "20분", dist: "5km", tip: "안탈리아 트램(Antalya Tramvay) Müze 역 탑승 → Atatürk 방향 → 칼레이치 인근 하차. 트램 약 ₺15. 택시는 약 ₺100~150" },
       { icon: "🚶", mode: "도보", time: "약 5분", dist: "350m", tip: "칼레이치 쇼핑 후 구항구 방향으로 내려오면 Puding Marina Residence 바로 앞. 도보 5분 이내 귀환 가능" },
@@ -351,20 +467,35 @@ const days = [
       {
         emoji: "🏖️",
         name: "콘야알티 해변",
-        photo: "https://source.unsplash.com/600x300/?konyaalti,beach,antalya,mediterranean",
-        desc: "안탈리아 최대 해변. 7km에 달하는 자갈 해변으로, 뒤로는 토로스 산맥이 병풍처럼 펼쳐지는 절경이다. 비치 클럽과 편의시설이 잘 갖춰져 있으며 물이 맑고 투명하다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?konyaalti,beach,antalya,mediterranean",
+          "https://source.unsplash.com/800x500/?antalya,beach,mountain,taurus",
+          "https://source.unsplash.com/800x500/?mediterranean,sea,clear,water,pebble,beach",
+        ],
+        desc: "안탈리아 최대 해변으로 7km에 달하는 자갈 해변. 뒤로는 토로스(타우루스) 산맥이 병풍처럼 펼쳐지는 절경이며, 물이 맑고 투명해 수영하기 최적의 환경이다. 비치 클럽·선베드·파라솔 대여가 잘 갖춰져 있으며, 해변 서쪽에 아타튀르크 문화 공원이 인접해 있어 산책도 가능하다. 안탈리아 박물관이 해변 동쪽 끝에 붙어 있어 동선이 편리하다. 5월은 성수기 이전이라 한산하고 물도 수영하기 딱 좋은 수온이다.",
+        details: { hours: "상시 개방 (선베드 대여 09:00~19:00)", price: "해변 무료 / 선베드 대여 ₺100~300", tip: "자갈 해변이라 발이 아플 수 있음 — 아쿠아 슈즈 강력 추천. 선크림 필수. 샤워 시설 무료 이용 가능" },
       },
       {
         emoji: "🏺",
         name: "안탈리아 박물관",
-        photo: "https://source.unsplash.com/600x300/?archaeology,museum,ancient,statue,turkey",
-        desc: "터키 최고 수준의 고고학 박물관 중 하나. 리키아·프리지아·로마 시대 유물과 조각상이 방대하게 소장되어 있다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?antalya,museum,ancient,artifacts",
+          "https://source.unsplash.com/800x500/?roman,statue,museum,ancient,turkey",
+          "https://source.unsplash.com/800x500/?archaeology,museum,sarcophagus,ancient",
+        ],
+        desc: "터키 최고 수준의 고고학 박물관 중 하나로, 남아나톨리아에서 출토된 방대한 유물을 소장하고 있다. 히타이트·리키아·프리지아·헬레니즘·로마 시대의 유물과 조각상이 시대별로 전시되며, 특히 로마 시대 황제 조각상 군(群)과 석관(석판관)이 인상적이다. 모자이크 전시관과 에트노그라피(민족지학) 전시관도 함께 운영 중이다. 콘야알티 해변 바로 옆이라 해변 후 1~2시간 관람 코스로 딱 맞다.",
+        details: { hours: "08:00~19:00 (월요일 휴관)", price: "약 ₺600", tip: "콘야알티 해변에서 도보 5분 이내. 규모가 크니 2~3시간 여유 잡기. 오디오 가이드(영어) 대여 가능" },
       },
       {
         emoji: "🧖",
         name: "하맘 (터키식 목욕)",
-        photo: "https://source.unsplash.com/600x300/?hammam,turkish,bath,spa,marble",
-        desc: "수백 년 역사의 터키 전통 목욕 문화. 대리석 욕실에서 온열 찜질 후, 케세(때수건 마사지)와 쾨퓌크(거품 마사지)를 받는다. 여행 피로를 한 방에 날려준다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?turkish,hammam,bath,marble",
+          "https://source.unsplash.com/800x500/?hammam,steam,traditional,spa,ritual",
+          "https://source.unsplash.com/800x500/?turkish,bath,traditional,interior",
+        ],
+        desc: "수백 년 이어온 터키 전통 목욕 문화. 뜨거운 대리석 욕상(고벡타쉬)에 누워 몸을 데운 후, 케세(이탈리아 때수건으로 피부 마사지)와 쾨퓌크(거품 마사지)를 차례로 받는다. 사우나·찜질방과 비슷하지만 훨씬 의례적이고 느긋한 분위기가 특징. 마사지 후 피부가 매끄러워지는 효과가 확실하다. 안탈리아 칼레이치 구시가지에 하맘이 여러 곳 있으며, 60~90분 코스가 일반적이다.",
+        details: { hours: "09:00~22:00 (하맘마다 상이)", price: "기본 코스 ₺500~1,000 (케세+거품 마사지 포함)", tip: "커플 함께 이용 가능한 혼합 공간 있는 곳은 사전 확인 필요. 속옷 대신 제공되는 페스타말(천) 착용. 너무 배부를 때 피하기" },
       },
     ],
   },
@@ -376,10 +507,11 @@ const days = [
     color: "#4A7C8E",
     icon: "✈️",
     title: "이스탄불 환승 → 인천",
-    mapUrl: "https://www.google.com/maps/dir/Antalya+Airport+AYT+Turkey/Istanbul+Airport+IST+Turkey",
-    mapStops: ["안탈리아 공항", "이스탄불 공항", "인천 도착"],
+    mapUrl: "https://www.google.com/maps/dir/Puding+Marina+Residence+Antalya/Antalya+Airport+AYT+Turkey",
+    mapStops: ["🏨 안탈리아 호텔", "안탈리아 공항", "이스탄불 공항", "인천 도착"],
     mapSegments: [
-      { icon: "✈️", mode: "국내선 (터키항공 등)", time: "1시간 15분", dist: "440km", tip: "페가수스(PC) 또는 터키항공(TK) 탑승. 아시아나(OZ)와 공동 수하물 연결 원하면 TK 필수. 공항 2시간 전 도착 권장" },
+      { icon: "🚕", mode: "택시 또는 셔틀버스", time: "25분", dist: "13km", tip: "Puding Marina Residence → AYT 공항. 아침 이른 출발이므로 전날 택시 미리 예약 추천. 미터기 기준 ₺200~300. 하바쉬 셔틀 ₺60" },
+      { icon: "✈️", mode: "국내선 (AYT → IST)", time: "1시간 15분", dist: "440km", tip: "페가수스(PC) 또는 터키항공(TK) 탑승. 아시아나(OZ)와 공동 수하물 연결 원하면 TK 필수. 공항 2시간 전 도착 권장" },
       { icon: "✈️", mode: "국제선 (아시아나 OZ0552)", time: "9시간 50분", dist: "약 8,800km", tip: "이스탄불 도착 후 국제선 환승. 터미널 내 이동이므로 3시간 여유 확보 필수. 탑승 전 면세 쇼핑 가능" },
     ],
     items: [
@@ -394,8 +526,13 @@ const days = [
       {
         emoji: "🛍️",
         name: "이스탄불 공항 면세점",
-        photo: "https://source.unsplash.com/600x300/?airport,duty,free,shopping",
-        desc: "세계 최대 규모의 공항 면세구역 중 하나. 터키산 로쿰(젤리), 올리브 오일, 도자기, 스카프, 명품 브랜드까지 다양하다.",
+        photos: [
+          "https://source.unsplash.com/800x500/?istanbul,airport,terminal,modern",
+          "https://source.unsplash.com/800x500/?duty,free,shopping,airport",
+          "https://source.unsplash.com/800x500/?turkish,baklava,sweets,box",
+        ],
+        desc: "세계 최대 규모의 공항 면세구역 중 하나. 터키산 로쿰(젤리)·바클라바·올리브 오일·사프란·카르피나(향신료)·도자기·스카프(파슈미나)·가죽 제품 등 기념품부터 샤넬·구찌·루이비통 등 명품까지 폭넓게 구비되어 있다. 환승 구간에 있어 국제선 탑승 전 2~3시간 여유가 있다면 충분히 쇼핑 가능.",
+        details: { hours: "24시간", price: "면세 혜택 적용", tip: "터키 로쿰은 Hafız Mustafa 공항 매장이 품질·가격 대비 가장 좋음. 올리브 오일 100ml 이하는 기내 반입 가능" },
       },
     ],
   },
@@ -441,9 +578,9 @@ const hotels = [
     nights: "2박 (5/22~5/24)",
     area: "술탄아흐메트 지구 추천",
     picks: [
-      { name: "Hotel Arcadia Blue Istanbul", type: "부티크 호텔", price: "₩80,000~110,000", point: "아야 소피아·블루 모스크 도보 5분. 루프탑에서 두 건물 동시 조망 가능.", tag: "뷰 맛집" },
-      { name: "Sura Hagia Sophia Hotel", type: "부티크 호텔", price: "₩90,000~120,000", point: "술탄아흐메트 중심가. 커플 조용한 분위기. 아야 소피아까지 도보 2분.", tag: "중심가 위치" },
-      { name: "Agora Life Hotel", type: "게스트하우스", price: "₩60,000~80,000", point: "그랜드 바자르 도보 10분. 가성비 최고. 더블룸 깔끔.", tag: "가성비" },
+      { name: "Hotel Arcadia Blue Istanbul", type: "부티크 호텔", price: "₩80,000~110,000", point: "아야 소피아·블루 모스크 도보 5분. 루프탑에서 두 건물 동시 조망 가능.", tag: "뷰 맛집", desc: "술탄아흐메트 광장 뒤편에 자리한 4성급 부티크 호텔. 루프탑 테라스에서 아야 소피아와 블루 모스크를 동시에 내려다보는 뷰가 이스탄불 숙소 중 손꼽히는 명당이다. 총 54개 객실 중 슈피리어 더블룸이 커플에게 인기. 술탄아흐메트·갈라타·이스티클랄 거리 모두 도보권이어서 관광 동선이 최적이다." },
+      { name: "Sura Hagia Sophia Hotel", type: "부티크 호텔", price: "₩90,000~120,000", point: "술탄아흐메트 중심가. 커플 조용한 분위기. 아야 소피아까지 도보 2분.", tag: "중심가 위치", desc: "아야 소피아까지 도보 2분 거리의 조용한 부티크 호텔. 객실 규모는 아담하지만 아늑하고 방음이 잘 되어 있다. 일부 객실에서 아야 소피아 첨탑 뷰가 보이며, 커플 여행자 리뷰 평점이 꾸준히 높다. 트램 Sultanahmet역이 도보 1분 이내라 교통도 편리하다." },
+      { name: "Agora Life Hotel", type: "게스트하우스", price: "₩60,000~80,000", point: "그랜드 바자르 도보 10분. 가성비 최고. 더블룸 깔끔.", tag: "가성비", desc: "여행자 동네 랄렐리(Laleli) 지구의 소규모 게스트하우스. 직원들이 친절하고 이스탄불 여행 정보에 밝아 현지 맛집·이동법 꿀팁을 얻기 좋다. 그랜드 바자르·이집션 바자르·에미르뇌뉘까지 도보 10~15분 이내라 시장 구경 중심의 여행자에게 실용적인 선택지다." },
     ],
   },
   {
@@ -453,9 +590,9 @@ const hotels = [
     nights: "3박 (5/24~5/27)",
     area: "괴레메 마을 동굴 호텔 추천",
     picks: [
-      { name: "Kelebek Special Cave Hotel", type: "동굴 호텔 ★", price: "₩90,000~130,000", point: "30년 역사 유명 동굴 호텔. 화산암 객실 + 테라스에서 열기구 뷰. 커플에게 최고 인기.", tag: "커플 픽" },
-      { name: "Cappadocia Cave Suites", type: "동굴 호텔", price: "₩100,000~140,000", point: "괴레메 뷰 테라스 보유. 야외 수영장 있음. 열기구 뷰가 SNS 핫플로 유명.", tag: "SNS 핫플" },
-      { name: "Travellers Cave Hotel", type: "동굴 게스트하우스", price: "₩55,000~75,000", point: "가성비 동굴 숙소. 괴레메 중심가 위치. 커플 더블룸 아늑한 동굴 분위기.", tag: "가성비" },
+      { name: "Kelebek Special Cave Hotel", type: "동굴 호텔 ★", price: "₩90,000~130,000", point: "30년 역사 유명 동굴 호텔. 화산암 객실 + 테라스에서 열기구 뷰. 커플에게 최고 인기.", tag: "커플 픽", desc: "30년 이상의 역사를 가진 카파도키아 대표 동굴 호텔. 괴레메 마을 암반 위 테라스에서 매일 새벽 열기구 군락이 하늘을 수놓는 장관을 감상할 수 있다. 동굴 객실은 화산암 특유의 단열 효과로 여름에도 선선하다. 총 34개 객실이 각각 다른 설계로 개성 있게 꾸며져 있으며, 허니문 케이브 스위트가 커플 1순위 인기 객실이다." },
+      { name: "Cappadocia Cave Suites", type: "동굴 호텔", price: "₩100,000~140,000", point: "괴레메 뷰 테라스 보유. 야외 수영장 있음. 열기구 뷰가 SNS 핫플로 유명.", tag: "SNS 핫플", desc: "괴레메 전망이 한눈에 내려다보이는 언덕 위 동굴 호텔. 인스타그램에서 가장 많이 공유되는 카파도키아 숙소 뷰 포인트로 유명하다. 야외 수영장에서 바라보는 계곡 전망이 압권이며, 아치형 천장과 직접 깎은 석조 욕실이 있는 동굴 스위트가 특히 인기. 성수기엔 3~4주 전 예약 필수다." },
+      { name: "Travellers Cave Hotel", type: "동굴 게스트하우스", price: "₩55,000~75,000", point: "가성비 동굴 숙소. 괴레메 중심가 위치. 커플 더블룸 아늑한 동굴 분위기.", tag: "가성비", desc: "괴레메 마을 중심가의 가성비 동굴 숙소. 가격 대비 청결도와 시설이 좋고 테라스에서 마을 전경이 보인다. 운영진이 영어와 약간의 한국어를 구사해 의사소통이 편리하며, 열기구·투어 예약을 호텔을 통해 연계해준다. 아치형 천장의 동굴 더블룸이 아늑한 분위기를 낸다." },
     ],
   },
   {
@@ -465,9 +602,9 @@ const hotels = [
     nights: "3박 (5/27~5/30)",
     area: "칼레이치 구시가지 or 해변가 추천",
     picks: [
-      { name: "Puding Marina Residence", type: "부티크 호텔", price: "₩80,000~110,000", point: "구항구 바로 앞. 지중해 뷰 테라스. 로맨틱한 분위기로 커플 강추.", tag: "커플 픽" },
-      { name: "Alp Pasa Boutique Hotel", type: "부티크 호텔", price: "₩85,000~115,000", point: "칼레이치 중심 오스만 시대 저택 개조. 중정 정원이 아름다운 숨은 명소.", tag: "분위기 맛집" },
-      { name: "Ani Boutique Hotel", type: "게스트하우스", price: "₩50,000~70,000", point: "칼레이치 골목 안 아담한 숙소. 가성비 최고. 주인이 친절해 여행 팁 풍부.", tag: "가성비" },
+      { name: "Puding Marina Residence", type: "부티크 호텔", price: "₩80,000~110,000", point: "구항구 바로 앞. 지중해 뷰 테라스. 로맨틱한 분위기로 커플 강추.", tag: "커플 픽", desc: "구항구 성벽 바로 위에 위치한 4성급 부티크 호텔. 구항구와 지중해가 한눈에 내려다보이는 테라스가 최고의 강점이다. 오래된 석조 저택을 개조한 건물로 복층 스위트가 가장 인기 있으며, 일부 객실은 바다 직접 조망이 가능하다. 칼레이치 구시가지 내라 차량 접근이 제한적이므로 도착 시 짐은 도보로 이동해야 한다." },
+      { name: "Alp Pasa Boutique Hotel", type: "부티크 호텔", price: "₩85,000~115,000", point: "칼레이치 중심 오스만 시대 저택 개조. 중정 정원이 아름다운 숨은 명소.", tag: "분위기 맛집", desc: "칼레이치 한복판의 18세기 오스만 저택을 개조한 부티크 호텔. 객실마다 다른 클래식 인테리어가 적용되어 있으며, 중정(안뜰) 정원의 오렌지 나무와 분수가 분위기를 완성한다. 총 26개 객실 중 가든 스위트가 커플에게 최고 추천. 조용하고 프라이빗한 분위기를 원하는 커플에게 제격인 숨은 명소다." },
+      { name: "Ani Boutique Hotel", type: "게스트하우스", price: "₩50,000~70,000", point: "칼레이치 골목 안 아담한 숙소. 가성비 최고. 주인이 친절해 여행 팁 풍부.", tag: "가성비", desc: "칼레이치 골목 안쪽의 아담한 가족 운영 게스트하우스. 주인 부부가 매우 친절하고 안탈리아 구석구석 맛집·명소 정보를 꿰고 있어 현지 정보를 얻기 좋다. 옥상 테라스에서 구시가지 전경이 보이며, 객실은 작지만 깔끔하게 유지되어 있다. 가성비 숙소 중 인테리어가 가장 예쁘다는 리뷰가 많다." },
     ],
   },
 ];
@@ -496,13 +633,7 @@ export default function TurkeyItinerary() {
   const [showAttractions, setShowAttractions] = useState(false);
   const [showHotels, setShowHotels] = useState(false);
   const [showMap, setShowMap] = useState(false);
-  const [imgErrors, setImgErrors] = useState({});
-
   const current = days[activeDay];
-
-  const handleImgError = (key) => {
-    setImgErrors(prev => ({ ...prev, [key]: true }));
-  };
 
   return (
     <div style={{
@@ -756,34 +887,68 @@ export default function TurkeyItinerary() {
               <span style={{ fontSize: "16px", transition: "transform 0.2s", transform: showAttractions ? "rotate(180deg)" : "rotate(0)", display: "inline-block" }}>⌄</span>
             </button>
             {showAttractions && (
-              <div style={{ marginTop: "8px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                {current.attractions.map((a, i) => {
-                  const imgKey = `${activeDay}-${i}`;
-                  return (
-                    <div key={i} style={{
-                      background: "#FFFFFF", borderRadius: "16px", overflow: "hidden",
-                      border: `1px solid ${current.color}18`, boxShadow: "0 2px 12px rgba(196,87,58,0.07)",
-                    }}>
-                      {!imgErrors[imgKey] ? (
-                        <img src={a.photo} alt={a.name} onError={() => handleImgError(imgKey)}
-                          style={{ width: "100%", height: "140px", objectFit: "cover", display: "block" }} />
-                      ) : (
-                        <div style={{
-                          width: "100%", height: "100px",
-                          background: `linear-gradient(135deg, ${current.color}20, ${current.color}45)`,
-                          display: "flex", alignItems: "center", justifyContent: "center", fontSize: "36px",
-                        }}>{a.emoji}</div>
-                      )}
-                      <div style={{ padding: "14px 16px" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                          <span style={{ fontSize: "18px" }}>{a.emoji}</span>
-                          <span style={{ fontSize: "14px", fontWeight: 700, color: current.color }}>{a.name}</span>
-                        </div>
-                        <p style={{ fontSize: "12px", color: "#5A3A28", lineHeight: 1.8, margin: 0 }}>{a.desc}</p>
-                      </div>
+              <div style={{ marginTop: "8px", display: "flex", flexDirection: "column", gap: "14px" }}>
+                {current.attractions.map((a, i) => (
+                  <div key={i} style={{
+                    background: "#FFFFFF", borderRadius: "16px", overflow: "hidden",
+                    border: `1px solid ${current.color}18`, boxShadow: "0 2px 14px rgba(196,87,58,0.08)",
+                  }}>
+                    {/* 사진 스트립 */}
+                    <div style={{ display: "flex", overflowX: "auto", scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+                      {a.photos.map((photo, pi) => (
+                        <img
+                          key={pi}
+                          src={photo}
+                          alt={`${a.name} ${pi + 1}`}
+                          onError={e => { e.target.style.display = "none"; }}
+                          style={{
+                            flexShrink: 0,
+                            width: pi === 0 ? "100%" : "72%",
+                            height: "180px",
+                            objectFit: "cover",
+                            display: "block",
+                            borderRight: pi < a.photos.length - 1 ? "3px solid #fff" : "none",
+                          }}
+                        />
+                      ))}
                     </div>
-                  );
-                })}
+                    {/* 본문 */}
+                    <div style={{ padding: "14px 16px" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
+                        <span style={{ fontSize: "20px" }}>{a.emoji}</span>
+                        <span style={{ fontSize: "15px", fontWeight: 700, color: current.color }}>{a.name}</span>
+                      </div>
+                      <p style={{ fontSize: "12px", color: "#4A2E22", lineHeight: 1.9, margin: "0 0 12px" }}>{a.desc}</p>
+                      {/* 상세 정보 */}
+                      {a.details && (
+                        <div style={{
+                          display: "flex", flexDirection: "column", gap: "7px",
+                          padding: "11px 13px", background: current.color + "08",
+                          borderRadius: "10px", border: `1px solid ${current.color}15`,
+                        }}>
+                          {a.details.hours && (
+                            <div style={{ display: "flex", gap: "8px", fontSize: "11px", color: "#5A3A28", alignItems: "flex-start" }}>
+                              <span style={{ fontWeight: 700, color: current.color, flexShrink: 0 }}>🕐 운영</span>
+                              <span style={{ lineHeight: 1.5 }}>{a.details.hours}</span>
+                            </div>
+                          )}
+                          {a.details.price && (
+                            <div style={{ display: "flex", gap: "8px", fontSize: "11px", color: "#5A3A28", alignItems: "flex-start" }}>
+                              <span style={{ fontWeight: 700, color: current.color, flexShrink: 0 }}>💰 요금</span>
+                              <span style={{ lineHeight: 1.5 }}>{a.details.price}</span>
+                            </div>
+                          )}
+                          {a.details.tip && (
+                            <div style={{ display: "flex", gap: "8px", fontSize: "11px", color: "#5A3A28", alignItems: "flex-start" }}>
+                              <span style={{ fontWeight: 700, color: current.color, flexShrink: 0 }}>💡 팁</span>
+                              <span style={{ lineHeight: 1.5 }}>{a.details.tip}</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -924,8 +1089,11 @@ export default function TurkeyItinerary() {
                       </div>
                       <span style={{ fontSize: "10px", fontWeight: 700, color: "#FFFFFF", background: pi === 0 ? h.color : "#A08070", padding: "2px 8px", borderRadius: "20px", flexShrink: 0 }}>{p.tag}</span>
                     </div>
-                    <div style={{ fontSize: "12px", fontWeight: 700, color: h.color, marginBottom: "4px" }}>{p.price} / 1박</div>
-                    <div style={{ fontSize: "11px", color: "#6A4A38", lineHeight: 1.6 }}>{p.point}</div>
+                    <div style={{ fontSize: "12px", fontWeight: 700, color: h.color, marginBottom: "6px" }}>{p.price} / 1박</div>
+                    <div style={{ fontSize: "11px", color: "#6A4A38", lineHeight: 1.6, marginBottom: p.desc ? "8px" : 0 }}>{p.point}</div>
+                    {p.desc && (
+                      <div style={{ fontSize: "11px", color: "#7A5A4A", lineHeight: 1.7, paddingTop: "8px", borderTop: `1px solid ${h.color}15` }}>{p.desc}</div>
+                    )}
                   </div>
                 ))}
               </div>
